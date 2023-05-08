@@ -29,6 +29,8 @@ mob_sence = ExtResource("2_63kk0")
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -1, 2.08165e-12)
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("BoxShape3D_0n4hu")
@@ -45,7 +47,7 @@ shadow_enabled = true
 [node name="CameraPivot" type="Marker3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(1, 1.23634e-07, -1.23634e-07, 2.4663e-16, 0.707107, 0.707107, 1.74846e-07, -0.707107, 0.707107, 1.163, 13.616, 19)
+transform = Transform3D(1, 1.23635e-07, -1.23635e-07, 4.52535e-08, 0.5, 0.866025, 1.68888e-07, -0.866025, 0.5, 1.163, 15.616, 10)
 fov = 63.2435
 
 [node name="Cylinders" type="Node3D" parent="."]
