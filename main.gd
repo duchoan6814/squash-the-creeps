@@ -2,6 +2,13 @@ extends Node
 
 @export var mob_sence: PackedScene
 
+func _ready():
+	$UserInterface/Retry.hide()
+
+func _unhandled_input(event):
+	if Input.is_action_just_pressed("ui_accept") and $UserInterface/Retry.visible:
+		get_tree().reload_current_scene()
+
 func _on_mob_timer_timeout():
 	# Create a new instance of the Mob scene.
 	var mob = mob_sence.instantiate()
@@ -15,7 +22,10 @@ func _on_mob_timer_timeout():
 	mob.initialize(mob_spawn_location.position, player_position)
 	
 	add_child(mob)
+	
+	mob.squashed.connect($UserInterface/ScoreLabel.on_mob_squashed.bind())
 
 
 func _on_player_hit():
 	$MobTimer.stop()
+	$UserInterface/Retry.show()
